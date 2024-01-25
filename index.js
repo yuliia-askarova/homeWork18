@@ -3,20 +3,24 @@ button.addEventListener('click', function(){
 
 const inputText = document.getElementById('textarea').value;
 const arr = inputText.split(' ');
-let set = new Set(arr);
-let size = set.size;
-console.log(size);
 
+let set = new Set();
 let map = new Map();
+
 arr.forEach(element => {
-    if(map.has(element)){
-        let count = map.get(element);
-        count +=1;
-        map.set(element, count)
-    } else {
-        map.set(element, 1)
-    }
+    if(element.trim() !== ""){
+        element = element.toLowerCase();
+        set.add(element);
+            if(map.has(element)){
+                let count = map.get(element);
+                count +=1;
+                map.set(element, count)
+            } else {
+                map.set(element, 1)
+    }} 
 });
+
+let size = set.size;
 const newArray = [];
 for (let entry of map) {
     const str = entry.toString().split(',').join(': ')
@@ -32,5 +36,3 @@ root.insertAdjacentHTML('beforeend', `<ul>${
     )).join('')
 }</ul>`)
 })
-
-

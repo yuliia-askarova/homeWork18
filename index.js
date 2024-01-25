@@ -4,8 +4,8 @@ button.addEventListener('click', function(){
 const inputText = document.getElementById('textarea').value;
 const arr = inputText.split(' ');
 
-let set = new Set();
-let map = new Map();
+const set = new Set();
+const map = new Map();
 
 arr.forEach(element => {
     if(element.trim() !== ""){
@@ -20,9 +20,9 @@ arr.forEach(element => {
     }} 
 });
 
-let size = set.size;
+const size = set.size;
 const newArray = [];
-for (let entry of map) {
+for (const entry of map) {
     const str = entry.toString().split(',').join(': ')
     newArray.push(str);
   }
